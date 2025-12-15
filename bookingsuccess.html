@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  
+    <title>RAD+ Online-Terminbuchung</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <meta charset="UTF-8" /> 
+
+    <link rel="stylesheet" type="text/css" href="scss/main.css" />
+    <link rel="stylesheet" type="text/css" href="scss/responsive.css" />
+    
+    <script src="js/jquery.min.js"></script>
+    
+    <!-- open core Hauptlogik rein -->
+    <script src='js/opencore_logic.js'></script>    
+
+    <!-- open core planer logic rein -->
+    <script src='js/planer_logic.js'></script>      
+    
+    
+
+</head>
+<body class="rp-theme-service rp-patientportal">
+
+    <!-- Headerbar -->
+    <div class="rp-headerbar">
+        <div class="rp-headerbar__left">
+            <button class="rp-icon rp-icon--md" title="Navigation" onclick="openNav()"><i class="icon-worklist"></i></button>
+        </div>
+        <div class="rp-headerbar__center">
+            <!--
+            <a href="index.html"><img src="images/RADplus_Logo_negativ.png" alt="RAD+" class="rp-headerbar__logo" /></a>
+            -->
+            <img src="images/RADplus_Logo_negativ.png" alt="RAD+" class="rp-headerbar__logo" />            
+            
+        </div>
+        <div class="rp-headerbar__right">
+            <a href="tel:+498441791200" class="rp-icon rp-icon--sm map-phoneHref" title="Praxis anrufen"><i class="fa fa-phone"></i><span class="rp-hide-sm rp-ml-10 map-phone">084 41 / 79 12-00</span></a>
+        </div>
+    </div>
+
+    <!-- Sidebar Nav -->
+    <div id="sidenav" class="rp-sidenav">
+        <a href="javascript:void(0)" class="rp-icon rp-icon--close" onclick="closeNav()"><i class="icon-close"></i></a>
+        <a href="planer.html" class="rp-sidenav__item">
+            <i class="rp-icon icon-calendar"></i>
+            Online-Terminbuchung
+        </a>
+        <a href="https://www.boos-moog.de/impressum" target="_blank" class="rp-sidenav__item map-urlImpressum">
+            <i class="rp-icon icon-info"></i>
+            Impressum
+        </a>	
+        <a href="https://www.boos-moog.de/datenschutz" target="_blank" class="rp-sidenav__item map-urlDatenschutz">
+            <i class="rp-icon icon-lock"></i>
+            Datenschutz
+        </a>	
+    </div>
+    
+    <!-- Main Container -->
+    <div id="main" class="rp-page-container rp-pl-0">
+        <div class="rp-page rp-pb-0">
+            <section>
+                <div class="rp-content-wrapper">
+
+                    <div class="rp-row rp-mb-30">
+                        <div class="rp-col-12 rp-text-center">
+                            <h1 class="rp-mb-20">Vielen Dank!</h1>
+                            <p>Sie erhalten in Kürze eine E-Mail mit allen Informationen zu Ihrem Termin.</p> 
+                        </div>
+                    </div>
+                    <div class="rp-row rp-alert">
+                        <div class="rp-col-12">
+                            <h3 class="rp-label">Bitte beachten Sie</h3>
+                            <p class="rp-mb-10">Um die Terminbuchung abzuschließen müssen Sie Ihren Termin noch bestätigen. <br><span class="rp-bold">Klicken Sie hierzu auf den Link, den wir Ihnen per E-Mail zugesandt haben.</span> </p>
+                            <p>Sollten Sie noch Fragen zu Ihrer Terminbuchung haben kontaktieren Sie uns bitte telefonisch unter <a href="tel:00498441791200" class="map-phone map-phoneHref">084 41 / 79 12-00</a>.</p>
+                        </div>
+                       
+                    </div>
+                
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function() {
+        initOpenCore( true );
+        initBase( false );
+          
+    });
+
+
+
+
+    function openNav() {
+      document.getElementById("sidenav").style.width = "300px";
+    }
+
+    function closeNav() {
+      document.getElementById("sidenav").style.width = "0";
+    }
+
+</script>
+
+</body>
+</html>
+
