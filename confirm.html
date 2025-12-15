@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  
+    <title>RAD+ Online-Terminbuchung</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <meta charset="UTF-8" /> 
+
+    <script src="js/jquery.min.js"></script>
+    
+    <script src="js/moment-with-locales.min.js"></script>
+    
+    
+    <!-- open core Hauptlogik rein -->
+    <script src='js/opencore_logic.js'></script>
+        
+    <!-- planungslogik rein -->
+    <script src='js/planer_logic.js'></script>    
+    
+    <link rel="stylesheet" type="text/css" href="scss/main.css" />
+    <link rel="stylesheet" type="text/css" href="scss/responsive.css" />
+
+</head>
+<body class="rp-theme-service rp-patientportal">
+
+    <!-- Headerbar -->
+    <div class="rp-headerbar">
+        <div class="rp-headerbar__left">
+            <button class="rp-icon rp-icon--md" title="Navigation" onclick="openNav()"><i class="icon-worklist"></i></button>
+        </div>
+        <div class="rp-headerbar__center">
+            <!-- <a href="index.html"><img src="images/RADplus_Logo_negativ.png" alt="RAD+" class="rp-headerbar__logo" /></a> -->
+            <img src="images/RADplus_Logo_negativ.png" alt="RAD+" class="rp-headerbar__logo" />            
+            
+        </div>
+        <div class="rp-headerbar__right">
+            <a href="tel:+498441791200" class="rp-icon rp-icon--sm map-phoneHref" title="Praxis anrufen"><i class="fa fa-phone"></i><span class="rp-hide-sm rp-ml-10 map-phone">084 41 / 79 12-00</span></a>
+        </div>
+    </div>
+
+    <!-- Sidebar Nav -->
+    <div id="sidenav" class="rp-sidenav">
+        <a href="javascript:void(0)" class="rp-icon rp-icon--close" onclick="closeNav()"><i class="icon-close"></i></a>
+        <a href="planer.html" class="rp-sidenav__item">
+            <i class="rp-icon icon-calendar"></i>
+            Online-Terminbuchung
+        </a>
+        <a href="https://www.boos-moog.de/impressum" target="_blank" class="rp-sidenav__item map-urlImpressum">
+            <i class="rp-icon icon-info"></i>
+            Impressum
+        </a>	
+        <a href="https://www.boos-moog.de/datenschutz" target="_blank" class="rp-sidenav__item map-urlDatenschutz">
+            <i class="rp-icon icon-lock"></i>
+            Datenschutz
+        </a>	
+    </div>
+    
+    <!-- Main Container -->
+    <div id="main" class="rp-page-container rp-pl-0">
+        <div class="rp-page rp-pb-0">
+            <section>
+                <div class="rp-content-wrapper">
+
+                    <div class="rp-row rp-mb-30">
+                        <div id="confRespCont" class="rp-col-12">
+                            <h1 class="rp-mb-20 rp-text-center">Vielen Dank für die Terminbestätigung!</h1>
+                            <p>Ihre Terminbuchung wurde erfolgreich abgeschlossen. Sie erhalten in Kürze eine Terminbestätigung sowie zusätzliche Informationen per E-Mail.</p>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <!-- Termindetails -->
+                    <div id="confDetails" class="rp-row">
+                        <div class="rp-col-6 rp-col-sm-12">
+                            <div class="rp-mb-30">
+                                <div class="rp-d-flex">
+                                    <h3 class="rp-label">Gebuchter Termin</h3>
+                                </div>
+                                <h2 class="rp-mb-5" id="co_sumDate"></h2>
+                                <p>Standort: <b id="co_sumLocation"></b></p>
+                            </div>
+                            <div class="rp-mb-30">
+                                <div class="rp-d-flex">
+                                    <h3 class="rp-label">Untersuchungsdaten</h3>
+                                </div>
+                                <p>Untersuchung: <b id="co_sumExaName"></b></p>
+                            </div>
+                        </div>
+                    </div>   
+
+                    
+                    
+                    
+                    
+                    
+<!--        SCAN Funktion erstmal deaktiviert bis umgesetzt            
+                    <div class="rp-row">
+                        <div class="rp-col-6 rp-col-sm-12 rp-mb-md-row">
+                            <div class="rp-headline-wrapper">
+                                <h2>Überweisungsschein</h2>
+                            </div>
+                            <button class="rp-btn">Abfotografieren</button>
+                            <button class="rp-btn">Hochladen</button>
+                        </div>
+
+                        <div class="rp-col-6 rp-col-sm-12">
+                            <div class="rp-headline-wrapper">
+                                <h2>Formulare</h2>
+                            </div>
+                            <p class="rp-mb-20">Um Zeit zu sparen können Sie sich schon vorab die benötigten Formulare für Ihre Untersuchung herunterladen und ausfüllen.</p>
+                            <ul class="rp-list rp-list--clickable">
+                                <li class="rp-list__item">
+                                    <i class="rp-icon rp-icon--sm icon-pdf rp-mr-10"></i>
+                                    Datenschutz
+                                    <a href="" class="rp-icon rp-icon--sm rp-ml-auto"><i class="icon-download"></i></a>
+                                </li>
+                                <li class="rp-list__item">
+                                    <i class="rp-icon rp-icon--sm icon-pdf rp-mr-10"></i>
+                                    CT Aufklärung
+                                    <a href="" class="rp-icon rp-icon--sm rp-ml-auto"><i class="icon-download"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+-->
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+    function co_initPage(){
+        /* alert("co_initPage!"); */
+        /* Parameter holen */
+        pMap = getUrlParas();
+        
+        /* alert("co_initPage paras:\n" + jstr( pMap ) ); */
+        
+        co_confirmApp( pMap );
+        
+    }
+
+    /* confirm an server senden */
+    function co_confirmApp( pMap ){
+        /* alle paras da? */
+        if( pMap["p1"] == undefined || pMap["p2"] == undefined ||  pMap["p3"] == undefined ){
+            showWarnMsg("Seitenaufruf nicht korrekt! Es fehlen Buchungsparameter!");
+            
+        }
+        
+        /* alert("start co_confirmApp!"); */
+        
+        var paras = {
+            "p1": pMap["p1"],
+            "p2": pMap["p2"],
+            "p3": pMap["p3"]
+        };
+        
+        /*
+        alert("confirmAppointment: paras:\n" + jstr( paras ) );
+        */
+       
+        oc_callService( "confirmAppointment", paras,
+            function( resp ){
+               /* alert("confirmAppointment RESP:\n" + jstr( resp ) ); */
+               co_renderConfirmResp( resp );
+            }
+            
+        );
+        
+    }
+    
+    function co_renderConfirmResp( resp ){
+        
+        var hA = [];
+        
+        /* Bestätigung erfolgreich? */
+        if( true == resp.success || "alreadyConfirmed" == resp.warnMsgId ){
+            hA.push( '<h1 class="rp-mb-20 rp-text-center">Vielen Dank für die Terminbestätigung!</h1>' );
+            hA.push( '<p>Ihre Terminbuchung wurde erfolgreich abgeschlossen. Sie erhalten in Kürze eine Terminbestätigung sowie zusätzliche Informationen per E-Mail.</p>' );
+        }
+        else{
+            hA.push( '<h1 class="rp-mb-20 rp-text-center">Bei ihrer Terminbestätigung trat ein Fehler auf!</h1>' );
+            
+            
+            if( resp.warnMsgId == undefined ){ resp.warnMsgId = ""; }
+            
+            /* Welche Art von Fehler? */
+            switch( resp.warnMsgId ){
+                /* Zeitslot abgelaufen */
+                case "expired":
+                    hA.push( '<p>Dieser Termin konnte nicht mehr gebucht werden, da er zu spät bestätigt wurde. Bitte planen Sie einen neuen Termin.</p>' );
+                    break;
+                default:
+                    hA.push( '<p>Dieser Termin konnte nicht mehr gebucht werden. Es trat ein technischer Fehler auf: ' + resp.warnMsgId + '</p>' );
+            }
+            
+            
+        }
+        
+        /* Termindetails drin? Dann anzeigen */
+        if( resp.bInfos != undefined ){
+            try{
+                co_renderSummary( resp.bInfos );
+                $( "#confDetails" ).show();
+            }
+            catch( derr ){
+                alert( derr );
+            }
+        }
+        else{
+            $( "#confDetails" ).hide();
+        }
+        
+        
+        
+        $( "#confRespCont" ).html( hA.join("") );
+    }
+
+
+
+
+    function co_renderSummary( bInfos ){
+        
+        /* alert("pl_renderSummary!"); */
+        
+        var ap = bInfos.appointmentGroup;
+        
+        /* Termin */
+        var date = ""; /* Mo, 10.03.2021 - 09:30 Uhr */
+        var loc = ""; /* 85276 Pfaffenhofen a.d.Ilm */
+        if( ap != undefined ){
+            
+            date = moment( ap.start ).format( "ddd, DD.MM.YYYY HH:mm") + " Uhr";
+            
+            var locData = getLocationData( ap.location );
+            loc = locData.zip + " " + locData.city;
+            
+        }
+        $("#co_sumDate").html( date );
+        $("#co_sumLocation").html( loc );
+      
+        
+        $( "#co_sumExaName" ).html( co_getExaNamesFromSugg( ap) );
+        
+ 
+        
+        
+        
+    }
+    
+    function co_getExaNamesFromSugg( sugg, defVal ){
+        if( sugg != undefined && sugg.exaList != undefined ){
+            var anfA = [];
+            for( var ax in sugg.exaList ){
+                
+                var anf = sugg.exaList[ ax ].anf;
+                if( sugg.exaList[ ax ].modId != undefined ){
+                    anf += " [" + sugg.exaList[ ax ].mod_id + "]";
+                }
+                
+                anfA.push( anf );
+            }
+            return anfA.join( ", " );
+        }
+        else{
+            return "";
+            
+        }
+        
+    }
+
+
+    function openNav() {
+      document.getElementById("sidenav").style.width = "300px";
+    }
+
+    function closeNav() {
+      document.getElementById("sidenav").style.width = "0";
+    }
+        
+
+    
+    
+    
+        
+    $( document ).ready(function() {
+        moment.locale( "de" );
+    
+        initOpenCore();
+        initBase( false );
+        
+        
+        co_initPage();
+    });        
+        
+        
+        
+        
+</script>
+
+</body>
+</html>
+
